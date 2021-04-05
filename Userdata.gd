@@ -59,7 +59,6 @@ func revert_config(cfg: ConfigFile):
 	#Write default settings to cfg;
 	for key in default_config.keys():
 		cfg.set_value("settings", key, default_config[str(key)])
-	print("Config file does not exist. Creating a default one.")
 	cfg.save(CONFIG_FILE)
 	load_config()
 	return cfg
@@ -72,7 +71,6 @@ func save_config(setting: String, value):
 	#Check if the file went away during runtime;
 	if unexistant: cfg = revert_config(cfg)
 	cfg.set_value("settings", setting, value)
-	print(setting, " set to ", value)
 	cfg.save(CONFIG_FILE)
 
 func get_config(setting):
@@ -90,7 +88,6 @@ func check_data(slot: int):
 	var fileslot = "%s%d" %[SAVE_FILE, slot] #Points to the file of that slot
 	var file = File.new()
 	if file.file_exists(fileslot):
-		print("File exists! Checking...")
 		file.open(fileslot, File.READ)
 		return file.get_var()["name"]
 	else: return null

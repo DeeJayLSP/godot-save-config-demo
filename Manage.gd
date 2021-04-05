@@ -9,22 +9,25 @@ func _ready():
 		if option > 2:
 			break
 		#Check if there's a save file with a name;
-		var slot_name = Userdata.check_data(option)
+		var slot_name = Userdata.check_data(option + 1)
 		#If there is a name, rename the button label to it;
 		if slot_name: 
 			slots.get_child(option).text = "Delete %s" %slot_name
 			slots.get_child(option).save_exists = true
+		#Disable the slot if it doesn't exist;
 		else:
 			slots.get_child(option).disabled = true
 
 func _on_Back_pressed():
 	get_tree().change_scene("res://Play.tscn")
 
+#Opens a confirmation popup;
 func _on_slot_pressed(slot):
 	print("Slot pressed: %d" %slot)
 	Userdata.active_slot = slot
 	confirmation.show()
 
+#The following functions handle delete confirmations;
 func _on_Yes_pressed():
 	confirmation.hide()
 	Userdata.erase_data()

@@ -1,5 +1,7 @@
 extends Node
 
+#This script is intended solely for printing licenses
+
 var license_godot = """
 
 This game uses Godot Engine, available under the following license:
@@ -45,3 +47,4 @@ func _ready():
 	print(license_godot)
 	yield(get_tree().create_timer(1.0), "timeout")
 	print(license_third_party)
+	queue_free()
