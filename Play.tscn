@@ -1,0 +1,115 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Play.gd" type="Script" id=1]
+[ext_resource path="res://SaveSlot.gd" type="Script" id=2]
+
+[node name="Play" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Back" type="Button" parent="."]
+margin_right = 120.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 120, 40 )
+text = "Back"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="VBoxContainer" parent="."]
+margin_left = 362.0
+margin_top = 165.0
+margin_right = 662.0
+margin_bottom = 435.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot 1" type="Button" parent="Options"]
+margin_right = 300.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 60 )
+text = "Slot 1"
+script = ExtResource( 2 )
+
+[node name="Slot 2" type="Button" parent="Options"]
+margin_top = 70.0
+margin_right = 300.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 300, 60 )
+text = "Slot 2"
+script = ExtResource( 2 )
+
+[node name="Slot 3" type="Button" parent="Options"]
+margin_top = 140.0
+margin_right = 300.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 300, 60 )
+text = "Slot 3"
+script = ExtResource( 2 )
+
+[node name="ManageSaves" type="Button" parent="Options"]
+margin_top = 210.0
+margin_right = 300.0
+margin_bottom = 270.0
+rect_min_size = Vector2( 300, 60 )
+text = "Manage Saves"
+
+[node name="NewFile" type="Control" parent="."]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Fade" type="ColorRect" parent="NewFile"]
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 0.498039 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Content" type="VBoxContainer" parent="NewFile"]
+margin_left = 392.0
+margin_top = 280.0
+margin_right = 632.0
+margin_bottom = 320.0
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="NewFile/Content"]
+margin_right = 240.0
+margin_bottom = 14.0
+text = "Name the slot"
+align = 1
+
+[node name="Field" type="TextEdit" parent="NewFile/Content"]
+margin_top = 24.0
+margin_right = 240.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 240, 20 )
+
+[node name="Enter" type="Button" parent="NewFile/Content"]
+margin_top = 54.0
+margin_right = 240.0
+margin_bottom = 74.0
+text = "Enter"
+[connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Options/Slot 1" to="Options/Slot 1" method="_on_pressed"]
+[connection signal="slot_pressed" from="Options/Slot 1" to="." method="_on_slot_pressed"]
+[connection signal="pressed" from="Options/Slot 2" to="Options/Slot 2" method="_on_pressed"]
+[connection signal="slot_pressed" from="Options/Slot 2" to="." method="_on_slot_pressed"]
+[connection signal="pressed" from="Options/Slot 3" to="Options/Slot 3" method="_on_pressed"]
+[connection signal="slot_pressed" from="Options/Slot 3" to="." method="_on_slot_pressed"]
+[connection signal="pressed" from="Options/ManageSaves" to="." method="_on_ManageSaves_pressed"]
+[connection signal="pressed" from="NewFile/Content/Enter" to="." method="_on_Enter_pressed"]

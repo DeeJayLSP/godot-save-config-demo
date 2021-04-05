@@ -1,0 +1,107 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Manage.gd" type="Script" id=1]
+[ext_resource path="res://DeleteSlot.gd" type="Script" id=2]
+
+[node name="Manage" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Options" type="VBoxContainer" parent="."]
+margin_left = 362.0
+margin_top = 165.0
+margin_right = 662.0
+margin_bottom = 435.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Slot 1" type="Button" parent="Options"]
+margin_right = 300.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 300, 60 )
+text = "Delete Slot 1"
+script = ExtResource( 2 )
+
+[node name="Slot 2" type="Button" parent="Options"]
+margin_top = 70.0
+margin_right = 300.0
+margin_bottom = 130.0
+rect_min_size = Vector2( 300, 60 )
+text = "Delete Slot 2"
+script = ExtResource( 2 )
+
+[node name="Slot 3" type="Button" parent="Options"]
+margin_top = 140.0
+margin_right = 300.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 300, 60 )
+text = "Delete Slot 3"
+script = ExtResource( 2 )
+
+[node name="Back" type="Button" parent="Options"]
+margin_top = 210.0
+margin_right = 300.0
+margin_bottom = 270.0
+rect_min_size = Vector2( 300, 60 )
+text = "Back"
+
+[node name="Fade" type="ColorRect" parent="."]
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0, 0, 0, 0.498039 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Confirmation" type="VBoxContainer" parent="Fade"]
+margin_left = 310.0
+margin_top = 268.0
+margin_right = 714.0
+margin_bottom = 332.0
+custom_constants/separation = 10
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="Fade/Confirmation"]
+margin_right = 404.0
+margin_bottom = 14.0
+text = "ARE YOU SURE YOU WANT TO DELETE SLOT DATA? (irreversible)"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Fade/Confirmation"]
+margin_top = 24.0
+margin_right = 404.0
+margin_bottom = 64.0
+custom_constants/separation = 10
+alignment = 1
+
+[node name="Yes" type="Button" parent="Fade/Confirmation/HBoxContainer"]
+margin_left = 117.0
+margin_right = 197.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 80, 40 )
+text = "Yes"
+
+[node name="No" type="Button" parent="Fade/Confirmation/HBoxContainer"]
+margin_left = 207.0
+margin_right = 287.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 80, 0 )
+text = "No"
+[connection signal="pressed" from="Options/Slot 1" to="Options/Slot 1" method="_on_pressed"]
+[connection signal="slot_pressed" from="Options/Slot 1" to="." method="_on_slot_pressed"]
+[connection signal="pressed" from="Options/Slot 2" to="Options/Slot 2" method="_on_pressed"]
+[connection signal="slot_pressed" from="Options/Slot 2" to="." method="_on_slot_pressed"]
+[connection signal="pressed" from="Options/Slot 3" to="Options/Slot 3" method="_on_pressed"]
+[connection signal="slot_pressed" from="Options/Slot 3" to="." method="_on_slot_pressed"]
+[connection signal="pressed" from="Options/Back" to="." method="_on_Back_pressed"]
+[connection signal="pressed" from="Fade/Confirmation/HBoxContainer/Yes" to="." method="_on_Yes_pressed"]
+[connection signal="pressed" from="Fade/Confirmation/HBoxContainer/No" to="." method="_on_No_pressed"]
