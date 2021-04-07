@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Play.gd" type="Script" id=1]
 [ext_resource path="res://SaveSlot.gd" type="Script" id=2]
+[ext_resource path="res://theme/theme.tres" type="Theme" id=3]
 
 [node name="Play" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -88,21 +90,22 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="NewFile/Content"]
+margin_top = 3.0
 margin_right = 240.0
-margin_bottom = 14.0
+margin_bottom = 23.0
 text = "Name the slot"
 align = 1
 
-[node name="Field" type="TextEdit" parent="NewFile/Content"]
-margin_top = 24.0
+[node name="Field" type="LineEdit" parent="NewFile/Content"]
+margin_top = 33.0
 margin_right = 240.0
-margin_bottom = 44.0
+margin_bottom = 57.0
 rect_min_size = Vector2( 240, 20 )
 
 [node name="Enter" type="Button" parent="NewFile/Content"]
-margin_top = 54.0
+margin_top = 67.0
 margin_right = 240.0
-margin_bottom = 74.0
+margin_bottom = 93.0
 text = "Enter"
 [connection signal="pressed" from="Back" to="." method="_on_Back_pressed"]
 [connection signal="pressed" from="Options/Slot 1" to="Options/Slot 1" method="_on_pressed"]

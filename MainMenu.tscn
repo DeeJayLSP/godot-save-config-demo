@@ -1,10 +1,12 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://theme/theme.tres" type="Theme" id=2]
 
 [node name="MainMenu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 2 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -23,21 +25,21 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="MenuItems"]
 margin_right = 480.0
-margin_bottom = 14.0
+margin_bottom = 20.0
 text = "THE BEST GAME EVER"
 align = 1
 
 [node name="Play" type="Button" parent="MenuItems"]
-margin_top = 34.0
+margin_top = 40.0
 margin_right = 480.0
-margin_bottom = 124.0
+margin_bottom = 130.0
 rect_min_size = Vector2( 480, 90 )
 text = "Play"
 
 [node name="Settings" type="Button" parent="MenuItems"]
-margin_top = 144.0
+margin_top = 150.0
 margin_right = 480.0
-margin_bottom = 234.0
+margin_bottom = 240.0
 rect_min_size = Vector2( 480, 90 )
 text = "Settings"
 [connection signal="pressed" from="MenuItems/Play" to="." method="_on_Play_pressed"]

@@ -1,21 +1,23 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Settings.gd" type="Script" id=1]
 [ext_resource path="res://music/sample_music.ogg" type="AudioStream" id=2]
+[ext_resource path="res://theme/theme.tres" type="Theme" id=3]
 
 [node name="Settings" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 3 )
 script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="List" type="VBoxContainer" parent="."]
-margin_left = 287.0
-margin_top = 115.0
-margin_right = 737.0
-margin_bottom = 485.0
+margin_left = 283.0
+margin_top = 98.0
+margin_right = 741.0
+margin_bottom = 502.0
 custom_constants/separation = 14
 alignment = 1
 __meta__ = {
@@ -23,104 +25,104 @@ __meta__ = {
 }
 
 [node name="MasterLabel" type="Label" parent="List"]
-margin_right = 453.0
-margin_bottom = 14.0
+margin_right = 459.0
+margin_bottom = 20.0
 text = "Master Volume"
 align = 1
 
 [node name="MasterVolume" type="HSlider" parent="List"]
-margin_top = 28.0
-margin_right = 453.0
-margin_bottom = 44.0
+margin_top = 34.0
+margin_right = 459.0
+margin_bottom = 50.0
 value = 1.0
-tick_count = 11
 ticks_on_borders = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="MusicLabel" type="Label" parent="List"]
-margin_top = 58.0
-margin_right = 453.0
-margin_bottom = 72.0
+margin_top = 64.0
+margin_right = 459.0
+margin_bottom = 84.0
 text = "Music Volume"
 align = 1
 
 [node name="MusicVolume" type="HSlider" parent="List"]
-margin_top = 86.0
-margin_right = 453.0
-margin_bottom = 102.0
+margin_top = 98.0
+margin_right = 459.0
+margin_bottom = 114.0
 value = 1.0
-tick_count = 11
 ticks_on_borders = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="EffectsLabel" type="Label" parent="List"]
-margin_top = 116.0
-margin_right = 453.0
-margin_bottom = 130.0
+margin_top = 128.0
+margin_right = 459.0
+margin_bottom = 148.0
 text = "Effects Volume"
 align = 1
 
 [node name="Effects" type="HBoxContainer" parent="List"]
-margin_top = 144.0
-margin_right = 453.0
-margin_bottom = 164.0
+margin_top = 162.0
+margin_right = 459.0
+margin_bottom = 207.0
+alignment = 1
 
 [node name="EffectsVolume" type="HSlider" parent="List/Effects"]
 margin_right = 410.0
-margin_bottom = 16.0
-rect_min_size = Vector2( 410, 0 )
+margin_bottom = 40.0
+rect_min_size = Vector2( 410, 40 )
 value = 1.0
-tick_count = 11
-ticks_on_borders = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Test" type="Button" parent="List/Effects"]
 margin_left = 414.0
-margin_right = 453.0
-margin_bottom = 20.0
+margin_right = 459.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 45, 45 )
 text = "Test"
 
 [node name="WindowLabel" type="Label" parent="List"]
-margin_top = 178.0
-margin_right = 453.0
-margin_bottom = 192.0
+margin_top = 221.0
+margin_right = 459.0
+margin_bottom = 241.0
 text = "Window Size"
 align = 1
 
 [node name="WindowSize" type="HBoxContainer" parent="List"]
-margin_top = 206.0
-margin_right = 453.0
-margin_bottom = 226.0
-rect_min_size = Vector2( 0, 20 )
+margin_top = 255.0
+margin_right = 459.0
+margin_bottom = 280.0
+rect_min_size = Vector2( 0, 25 )
+alignment = 1
 
-[node name="Width" type="TextEdit" parent="List/WindowSize"]
-margin_right = 223.0
-margin_bottom = 20.0
+[node name="Width" type="LineEdit" parent="List/WindowSize"]
+margin_left = 4.0
+margin_right = 227.0
+margin_bottom = 25.0
 rect_min_size = Vector2( 223, 0 )
 
-[node name="Height" type="TextEdit" parent="List/WindowSize"]
-margin_left = 227.0
-margin_right = 450.0
-margin_bottom = 20.0
+[node name="Height" type="LineEdit" parent="List/WindowSize"]
+margin_left = 231.0
+margin_right = 454.0
+margin_bottom = 25.0
 rect_min_size = Vector2( 223, 0 )
 
 [node name="Apply" type="Button" parent="List"]
-margin_top = 240.0
-margin_right = 453.0
-margin_bottom = 300.0
+margin_top = 294.0
+margin_right = 459.0
+margin_bottom = 354.0
 rect_min_size = Vector2( 0, 60 )
 text = "Apply"
 
 [node name="Back" type="Button" parent="List"]
-margin_top = 314.0
-margin_right = 453.0
-margin_bottom = 374.0
+margin_top = 368.0
+margin_right = 459.0
+margin_bottom = 428.0
 rect_min_size = Vector2( 0, 60 )
 text = "Back"
 
